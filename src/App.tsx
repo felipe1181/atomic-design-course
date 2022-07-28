@@ -13,10 +13,11 @@ import api from './api';
 
 const Header: React.FC = () => {
   return (
-    <View>
+    <View style={styles.headerContainer}>
+      <Text style={styles.headerTitle}>Atomic design sem enrolação</Text>
       <ImageBackground
+        style={styles.headerImage}
         source={require('./assets/atomic-bg.jpg')}
-        style={styles.containerHeader}
       />
     </View>
   );
@@ -51,13 +52,24 @@ const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
   },
-  containerHeader: {
-    height: 130,
+  headerContainer: {
+    marginBottom: 5,
+    backgroundColor: '#f5f5f5',
+    padding: 10,
+  },
+  headerImage: {
+    height: 120,
+  },
+  headerTitle: {
+    fontSize: 20,
+    textAlign: 'center',
+    fontWeight: '500',
   },
   contentContainer: {
     flex: 1,
     padding: 5,
   },
+
   postCard: {
     padding: 10,
     backgroundColor: '#f5f5f5',
