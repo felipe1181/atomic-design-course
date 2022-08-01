@@ -4,9 +4,12 @@ import {StyleSheet, Text, TextProps} from 'react-native';
 const Typography: React.FC<TextProps & {variant: 'Heading' | 'Paragraph'}> = ({
   variant,
   children,
+  ...rest
 }) => {
   return (
-    <Text style={[styles[variant as keyof typeof styles]]}>{children}</Text>
+    <Text style={[styles[variant as keyof typeof styles]]} {...rest}>
+      {children}
+    </Text>
   );
 };
 
