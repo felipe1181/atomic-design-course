@@ -1,34 +1,14 @@
 import React from 'react';
-import {
-  FlatList,
-  ImageBackground,
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
 
 import api from './api';
-
-const Header: React.FC = () => {
-  return (
-    <View style={styles.headerContainer}>
-      <Text style={styles.headerTitle}>Atomic design sem enrolação</Text>
-      <ImageBackground
-        style={styles.headerImage}
-        source={require('./assets/atomic-bg.jpg')}
-      />
-    </View>
-  );
-};
+import {Dashboard, ScreenContainer} from './components';
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.screenContainer}>
-      <StatusBar barStyle={'light-content'} />
-      <Header />
-      <View style={styles.contentContainer}>
+    <ScreenContainer>
+      <Dashboard.Header />
+      <View style={{flex: 1}}>
         <FlatList
           data={api}
           renderItem={({item}) => (
@@ -44,7 +24,7 @@ const App = () => {
       <View style={styles.containerFooter}>
         <Text style={styles.titleFooter}>Criado por Felipe Ferraresi</Text>
       </View>
-    </SafeAreaView>
+    </ScreenContainer>
   );
 };
 
